@@ -1,0 +1,70 @@
+.receipt * {
+   font-family: "Chakra Petch", sans-serif;
+}
+
+.receipt p,
+.receipt span,
+.receipt th,
+
+
+.receipt td,
+.receipt div {
+   font-size: 15px;
+   /* margin-bottom: 0px; */
+}
+
+.receipt.detailed-order p,
+.receipt.detailed-order span {
+   font-size: 17px;
+   margin-bottom: 4px;
+}
+
+.receipt hr {
+   opacity: 1;
+   margin: 8px 0px !important;
+}
+
+.receipt {
+   max-width: 700px;
+   margin: auto;
+   margin-top: 20px;
+   background: white;
+}
+
+.receipt table {
+   width: 100%;
+}
+
+.receipt thead {
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
+}
+
+.receipt th {
+   padding-top: 0px !important;
+   text-align: left;
+   padding-bottom: 10px;
+}
+
+.receipt td {
+   padding: 0px 0px;
+}
+
+
+.receipt .title .image-wrapper {
+   width: 70px;
+   height: 70px;
+   position: relative;
+}
+
+.receipt .title .image-wrapper img {
+   width: 100%;
+}
+
+.receipt .amount-in-words {
+   text-transform: capitalize;
+}
+
+.receipt.detailed-order {
+   max-width: 100% !important;
+}

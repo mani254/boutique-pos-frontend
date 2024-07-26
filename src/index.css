@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Mukta", sans-serif;
+}
+
+p,
+span,
+li,
+ul,
+div,
+a {
+  @apply text-lg;
+}
+
+h5 {
+  @apply text-xl font-bold;
+}
+
+h6 {
+  @apply text-lg font-bold;
+}
+
+button[disabled] {
+  @apply text-gray-400;
+}
+
+input,
+select {
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2 pl-2 pr-3 placeholder-gray-500 outline-none;
+}
+
+.form-input.variant-1 {
+  @apply ml-5 flex items-center;
+}
+
+.form-input.variant-1 label {
+  @apply text-sm text-gray-400;
+}
+
+.form-input.variant-1 input,
+.form-input.variant-1 select {
+  @apply ml-2 text-sm;
+}
+
+.form-input.variant-2 input {
+  @apply m-0 mb-3 border-2 border-gray-500 py-1 text-lg;
+}
+
+.form-input.variant-2 {
+  @apply text-lg text-gray-600;
+}
+
+.error {
+  @apply text-sm text-red-400;
+}
+
+.back-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.back-container .form-input {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-top: 2px;
+}
+
+.back-container .form-input,
+.back-container input,
+.back-container textarea,
+.back-container select {
+  margin-left: 0px !important;
+  display: block;
+}
+
+.back-container textarea {
+  width: 100%;
+  height: 100px;
+  outline: none;
+}
+
+.back-container label {
+  color: black !important;
+}
+
+.back-container label,
+.back-container input,
+.back-container p,
+.back-container div {
+  font-size: 17px !important;
+}
+
+/* css for the file input  */
+.file-input {
+  position: relative;
+}
+
+.file-input.variant-1 input {
+  display: none;
+}
+
+.file-input.variant-1 label {
+  display: none;
+}
+
+.file-input button {
+  padding: 3px 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #0008;
+  box-shadow: 0px 0px 2px #0005;
+  font-size: 14px;
+}
+
+/*css for the orders  */
+
+.main-table label {
+  display: none;
+}
+
+.main-table input,
+.main-table select,
+.main-table .form-input {
+  margin: 0 !important;
+}
+
+.main-table select {
+  padding: 4px;
+}
+
+.main-table {
+  @apply mt-4 w-full border-collapse rounded-lg;
+}
+
+.main-table thead {
+  @apply rounded-md bg-violet-500 text-white;
+}
+
+.main-table td,
+.main-table th {
+  @apply px-2 py-1;
+}
+
+.main-table tr {
+  @apply border border-gray-300 bg-white;
+}
+
+.main-table th {
+  @apply py-2 text-left;
+}
+
+.main-table,
+.main-table select {
+  font-size: 17px !important;
+  width: 100% !important;
+}
+
+.main-table option {
+  padding: 2px 20px !important;
+}
+
+hr {
+  @apply border border-gray-300;
+}
+
+.label-none label {
+  display: none;
+}
+
+/* =====================
+   css  for the orders 
+========================*/
+.main-table.orders {
+  @apply cursor-pointer hover:bg-gray-200;
+}
+
+.main-table.orders tr :nth-child(1) {
+  width: 15%;
+  min-width: 140px;
+}
+
+.main-table.orders tr :nth-child(2) {
+  width: 10%;
+  min-width: 120px;
+}
+
+.main-table.orders tr :nth-child(3) {
+  width: 10%;
+  min-width: 90px;
+}
+
+.main-table.orders tr :nth-child(4) {
+  width: 25%;
+  min-width: 200px;
+}
+
+.main-table.orders tr :nth-child(5) {
+  width: 8%;
+  min-width: 90px;
+}
+
+.main-table.orders tr :nth-child(6) {
+  min-width: 90px;
+  width: 8%;
+}
+
+.main-table.orders tr :nth-child(7) {
+  width: 8%;
+  min-width: 90px;
+}
+
+.main-table.orders tr :nth-child(8) {
+  width: 15%;
+  min-width: 190px;
+}
+
+/* ==============================
+css for the detailed order view  
+================================*/
+
+.main-table.detailed tr :nth-child(1) {
+  width: 5%;
+  min-width: 50px;
+}
+
+.main-table.detailed tr :nth-child(2) {
+  width: 40%;
+  min-width: 170px;
+}
+
+.main-table.detailed tr :nth-child(3) {
+  width: 15%;
+  min-width: 90px;
+}
+
+.main-table.detailed tr :nth-child(4) {
+  width: 15%;
+  min-width: 200px;
+}
+
+.main-table.detailed tr :nth-child(5) {
+  width: 15%;
+  min-width: 90px;
+}
+
+/* ========================================
+       css for the billing section
+ ========================================= */
+.items-entry input,
+.items-entry select {
+  @apply bg-gray-100;
+}
+
+.main-table.billing {
+  @apply mt-0;
+}
+
+.main-table.billing thead tr {
+  @apply bg-violet-500;
+}
+
+.items-wrapper {
+  min-height: calc(100vh - 100px);
+  position: relative;
+}
+
+.items-entry {
+  position: absolute;
+  width: 100%;
+  height: 45px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.billing-page label {
+  white-space: nowrap;
+  min-width: 120px;
+  color: black !important;
+  font-size: 17px !important;
+}
+
+.billing-page textarea {
+  outline: none;
+  height: 150px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 0px #0005;
+  padding: 1rem;
+}
+
+.billing-page input,
+.billing-page select {
+  font-size: 17px !important;
+}
+
+.billing-page .form-input {
+  @apply mx-0 mt-3;
+}
+
+.billing-page .form-input input {
+  margin-left: 0px;
+}
+
+.main-table.billing tr td:nth-child(1) {
+  width: 5%;
+  min-width: 50px;
+}
+
+.main-table.billing tr td:nth-child(2) {
+  width: 30%;
+  min-width: 140px;
+}
+
+.main-table.billing tr td:nth-child(3) {
+  width: 15%;
+  min-width: 140px;
+}
+
+.main-table.billing tr td:nth-child(4) {
+  width: 15%;
+  min-width: 140px;
+}
+
+.main-table.billing tr td:nth-child(5) {
+  width: 15%;
+  min-width: 140px;
+}
+
+.main-table.billing tr td:nth-child(6) {
+  width: 5%;
+  min-width: 100px;
+}
+
+/* .enter-icon {
+   font-size: 20px !important;
+} */
+
+/* =============================================
+         css for the categories
+ ============================================ */
+.categories label {
+  white-space: nowrap;
+  color: black !important;
+  font-size: 17px !important;
+}
+
+/* *================================================
+ css for the stores
+ ================================================* */
+.main-table.stores thead tr {
+  background: none;
+}
+
+.main-table.stores thead td {
+  padding: 2px 0px !important;
+}
+
+/* *================================================
+ css for the admins
+ ================================================* */
+
+.main-table thead tr {
+  background: none;
+}
+
+.main-table.customers tbody tr {
+  cursor: pointer;
+}

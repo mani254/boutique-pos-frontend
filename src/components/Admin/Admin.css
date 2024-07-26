@@ -1,0 +1,43 @@
+.admin-container table {
+   width: 100%;
+}
+
+.admin-container th {
+   background: var(--tertiary-color);
+}
+
+.admin-container th,
+.admin-container td {
+   padding: 10px;
+   border-bottom: 1px solid #ccc;
+}
+
+.admin-container .image-wrapper {
+   width: 80px;
+   height: 60px;
+}
+
+.admin-container th:nth-child(2),
+.admin-container td:nth-child(2) {
+   width: 20%;
+}
+
+.admin-container th:nth-child(3),
+.admin-container td:nth-child(3) {
+   width: 30%;
+}
+
+.admin-container th:nth-child(4),
+.admin-container td:nth-child(4) {
+   width: 30%;
+}
+
+.admin-container th:nth-child(5),
+.admin-container td:nth-child(4) {
+   width: 10%;
+}
+
+.admin-container th:nth-child(1),
+.admin-container td:nth-child(1) {
+   width: 10%;
+}

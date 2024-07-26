@@ -1,0 +1,11 @@
+.nav-link {
+   @apply flex items-center p-2 rounded-md transition-colors duration-300 hover:bg-gray-200 justify-center xl:justify-start;
+}
+
+.nav-link img {
+   @apply w-6 h-6
+}
+
+.nav-link.active, .nav-link.active .icon {
+   @apply bg-violet-500 text-white;
+}
