@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import AdminRoute from "./components/AdminRoutes/AdminRoute";
+
 import Layout from "./components/Layout/Layout";
 import Dashboard from "./components/Dashboard/Dashboard";
 import LoginPage from "./pages/LoginPage";
@@ -31,6 +33,8 @@ import CustomersLayout from "./components/Customers/CustomerLayout";
 import Customers from "./components/Customers/Customers";
 
 import Modal from "./components/Modal/Modal";
+
+import NotFound from "./pages/NotFound";
 
 import "./App.css";
 import { initialLogin } from "./redux/auth/authActions";
@@ -62,28 +66,44 @@ function App({ auth, modal, initialLogin }) {
       <Notification />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<Layout />}>
-          <Route path="/categories" element={<Categories />}></Route>
-          <Route index element={<Dashboard />}></Route>
-          <Route path="orders" element={<OrdersLayout />}>
-            <Route index element={<Orders />} />
-            <Route path="view/:id" element={<DetailedOrder />} />
+        {auth.user && (
+          <Route path="/" element={<Layout />}>
+            <Route path="/categories" element={<Categories />}></Route>
+            <Route
+              index
+              element={<AdminRoute component={<Dashboard />} />}
+            ></Route>
+            <Route path="orders" element={<OrdersLayout />}>
+              <Route index element={<Orders />} />
+              <Route path="view/:id" element={<DetailedOrder />} />
+            </Route>
+
+            {auth.user.superAdmin && (
+              <Route path="stores" element={<StoreLayout />}>
+                <Route index element={<Stores />}></Route>
+                <Route path="add" element={<AddStore />} />
+                <Route path="edit/:id" element={<UpdateStore />} />
+              </Route>
+            )}
+
+            {!auth.user.superAdmin && (
+              <Route path="/billing" element={<Billing />} />
+            )}
+
+            {auth.user.superAdmin && (
+              <Route path="admins" element={<AdminPageLayout />}>
+                <Route index element={<Admins />}></Route>
+                <Route path="add" element={<AddAdmin />} />
+                <Route path="edit/:id" element={<UpdateAdmin />} />
+              </Route>
+            )}
+            <Route path="/customers" element={<CustomersLayout />}>
+              <Route index element={<Customers />}></Route>
+            </Route>
           </Route>
-          <Route path="stores" element={<StoreLayout />}>
-            <Route index element={<Stores />}></Route>
-            <Route path="add" element={<AddStore />} />
-            <Route path="edit/:id" element={<UpdateStore />} />
-          </Route>
-          <Route path="/billing" element={<Billing />} />
-          <Route path="admins" element={<AdminPageLayout />}>
-            <Route index element={<Admins />}></Route>
-            <Route path="add" element={<AddAdmin />} />
-            <Route path="edit/:id" element={<UpdateAdmin />} />
-          </Route>
-          <Route path="/customers" element={<CustomersLayout />}>
-            <Route index element={<Customers />}></Route>
-          </Route>
-        </Route>
+        )}
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {modal.showModal && (
         <Modal props={modal.modalProps} component={modal.modalComponent} />
