@@ -13,7 +13,7 @@ const PiChart = ({ storesInfo }) => {
     const canvasSize = Math.min(canvas.width, canvas.height);
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const radius = canvasSize * 0.43; // Adjust the scale factor as needed (0.4 for example)
+    const radius = canvasSize * 0.43;
 
     // Background circle
     const bgCircleRadius = radius * 0.7; // 70% of the main chart radius
@@ -38,7 +38,7 @@ const PiChart = ({ storesInfo }) => {
       ctx.closePath();
 
       // Set segment color
-      ctx.fillStyle = getRandomColor();
+      ctx.fillStyle = storesInfo[i].color;
       ctx.fill();
 
       // Update startAngle for the next segment

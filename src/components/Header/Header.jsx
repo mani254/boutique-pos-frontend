@@ -1,9 +1,9 @@
 import React from "react";
 import SearchComponent from "../SearchComponent/SearchComponent";
 
-function Header() {
+function Header({ auth }) {
   return (
-    <div>
+    <div className="sticky top-0">
       <div className="flex items-center justify-between rounded-md border-b-4 border-violet-50 bg-white p-2">
         <SearchComponent />
         <div className="flex items-center">
