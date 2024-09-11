@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import {
   TextInput,
   PasswordInput,
@@ -32,37 +33,47 @@ function LoginPage({ login }) {
   }
 
   return (
-    <section className="flex h-screen items-center justify-center">
-      <form
-        className="min-w-96 rounded-lg border-2 border-gray-200 bg-white p-6 shadow-md"
-        onSubmit={handleSubmit}
-      >
-        <h5 className="mb-3 text-center text-violet-500">Admin Login</h5>
-        <TextInput
-          type="email"
-          id="login-input"
-          name="email"
-          label="Email:"
-          value={logInDetails.email}
-          variant="variant-2"
-          onChange={handleChange}
+    <>
+      <Helmet>
+        <title>Login - Sruthi boutique</title>
+        <meta
+          name="description"
+          content="Login to access your account and manage your orders, stores, and more."
         />
-        <PasswordInput
-          id="password-input"
-          name="password"
-          label="Password:"
-          value={logInDetails.password}
-          variant="variant-2"
-          onChange={handleChange}
-        />
-        <button
-          className="mx-auto mt-3 block rounded-md bg-violet-500 px-5 py-1 text-white hover:bg-violet-600"
-          type="submit"
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+      <section className="flex h-screen items-center justify-center">
+        <form
+          className="min-w-96 rounded-lg border-2 border-gray-200 bg-white p-6 shadow-md"
+          onSubmit={handleSubmit}
         >
-          Login
-        </button>
-      </form>
-    </section>
+          <h5 className="mb-3 text-center text-violet-500">Admin Login</h5>
+          <TextInput
+            type="email"
+            id="login-input"
+            name="email"
+            label="Email:"
+            value={logInDetails.email}
+            variant="variant-2"
+            onChange={handleChange}
+          />
+          <PasswordInput
+            id="password-input"
+            name="password"
+            label="Password:"
+            value={logInDetails.password}
+            variant="variant-2"
+            onChange={handleChange}
+          />
+          <button
+            className="mx-auto mt-3 block rounded-md bg-violet-500 px-5 py-1 text-white hover:bg-violet-600"
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+      </section>
+    </>
   );
 }
 
