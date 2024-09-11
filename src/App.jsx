@@ -112,7 +112,7 @@ function App({ auth, modal, initialLogin }) {
               }
             />
           )}
-          <Route path="*" element={<NotFound />} />
+          {auth.user && <Route path="*" element={<NotFound />} />}
         </Routes>
       </Suspense>
       {modal.showModal && (
