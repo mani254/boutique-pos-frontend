@@ -11,6 +11,7 @@ import ConfirmationAlert from "../ConfirmationAlert/ConfirmationAlert.jsx";
 import { deleteStore } from "../../redux/stores/storeActions.js";
 
 import Loader from "../Loader/Loader.jsx";
+import { Helmet } from "react-helmet-async";
 // import "./Stores.css";
 
 function Stores({ showModal, deleteStore }) {
@@ -27,6 +28,15 @@ function Stores({ showModal, deleteStore }) {
 
   return (
     <>
+      <Helmet>
+        <title>Stores - Sruthi Boutique</title>
+        <meta
+          name="description"
+          content="View and manage all stores at Sruthi Boutique."
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
       {storeData.getLoading ? (
         <div className="h-96">
           <Loader></Loader>

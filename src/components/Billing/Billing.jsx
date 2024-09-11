@@ -7,6 +7,7 @@ import { showNotification } from "../../redux/notification/notificationActions";
 import BillingReceipt from "./BillingReceipt";
 import axios from "axios";
 import html2canvas from "html2canvas";
+import { Helmet } from "react-helmet-async";
 
 import {
   SelectInput,
@@ -188,6 +189,14 @@ function Billing({ categoriesData, getCategories, showNotification }) {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>Billing - Sruthi Boutique</title>
+        <meta
+          name="description"
+          content="handle all the billing part of the website"
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
       <Header />
       <div className="billing-page mt-3">
         <div className="flex">

@@ -11,6 +11,7 @@ import Loader from "../Loader/Loader";
 import { connect } from "react-redux";
 import { showNotification } from "../../redux/notification/notificationActions";
 import { getStores } from "../../redux/stores/storeActions";
+import { Helmet } from "react-helmet-async";
 
 const statusArray = [
   { label: "all", value: "" },
@@ -171,6 +172,15 @@ function Orders({ showNotification, storesData, getStores, auth }) {
 
   return (
     <>
+      <Helmet>
+        <title>Orders - Sruthi Boutique</title>
+        <meta
+          name="description"
+          content="View and manage all orders at Sruthi Boutique."
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
       <div className="mt-3 flex items-center justify-between border-b-2 pb-2">
         <h5>Orders</h5>
         <div className="flex">
