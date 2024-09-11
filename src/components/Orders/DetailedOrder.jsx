@@ -4,6 +4,7 @@ import axios from "axios";
 import { showNotification } from "../../redux/notification/notificationActions";
 import { connect } from "react-redux";
 import Loader from "../Loader/Loader";
+import { Helmet } from "react-helmet-async";
 
 function DetailedOrder({ showNotification }) {
   const { id } = useParams();
@@ -66,6 +67,15 @@ function DetailedOrder({ showNotification }) {
 
   return (
     <>
+      <Helmet>
+        <title>Detailed Order - Sruthi Boutique</title>
+        <meta
+          name="description"
+          content="View and manage the detailed information of an order at Sruthi Boutique."
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
       <div className="mt-3 flex items-center justify-between border-b-2 pb-2">
         <h5>Detailed Order View</h5>
       </div>

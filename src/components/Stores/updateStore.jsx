@@ -12,6 +12,7 @@ import { useNavigate, useOutletContext, useParams } from "react-router-dom";
 import SingleImageComponent from "../ImageComponent/SingleImageComponent";
 import { validateField } from "../../utils";
 import Loader from "../Loader/Loader";
+import { Helmet } from "react-helmet-async";
 
 function UpdateStore({ updateStore, showNotification }) {
   const [storeDetails, setStoreDetails] = useState({
@@ -77,115 +78,126 @@ function UpdateStore({ updateStore, showNotification }) {
   }
 
   return (
-    <div className="back-container pt-5">
-      {storeData.updateLoading ? (
-        <div className="h-96">
-          <Loader />
-        </div>
-      ) : (
-        <div className="flex flex-wrap">
-          <div className="lg:w-1/2">
-            <TextInput
-              label="Name:"
-              name="name"
-              id="store-name"
-              onChange={handleChange}
-              value={storeDetails.name}
-              variant="variant-1"
-              required
-            >
-              {errors.name && <p className="error">{errors.name}</p>}
-            </TextInput>
-          </div>
-          <div className="lg:w-1/2">
-            <TextInput
-              label="Properator:"
-              name="properator"
-              id="properator"
-              onChange={handleChange}
-              value={storeDetails.properator}
-              variant="variant-1"
-              required
-            >
-              {errors.properator && (
-                <p className="error">{errors.properator}</p>
-              )}
-            </TextInput>
-          </div>
-          <div className="lg:w-1/2">
-            <TelInput
-              label="Phone No:"
-              name="phone"
-              id="phone"
-              onChange={handleChange}
-              value={storeDetails.phone}
-              variant="variant-1"
-              required
-            >
-              {errors.phone && <p className="error">{errors.phone}</p>}
-            </TelInput>
-          </div>
-          <div className="lg:w-1/2">
-            <TextInput
-              label="Land line"
-              name="landLine"
-              id="landLine"
-              onChange={handleChange}
-              value={storeDetails.landLine}
-              variant="variant-1"
-              required
-            >
-              {errors.landLine && <p className="error">{errors.landLine}</p>}
-            </TextInput>
-          </div>
-          <div className="lg:w-1/2">
-            <SelectInput
-              options={[
-                { value: true, label: "Active" },
-                { value: false, label: "InActive" },
-              ]}
-              label="Status:"
-              id="banner-status"
-              defaultValue={storeDetails.status}
-              variant="variant-1"
-              name="status"
-              onChange={handleChange}
-              required
-            />
-          </div>
+    <>
+      <Helmet>
+        <title>Update Store - Sruthi Boutique</title>
+        <meta
+          name="description"
+          content="Update the details of existing stores at Sruthi Boutique."
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
 
-          <div className="lg:w-1/2">
-            <TextArea
-              label="Address"
-              name="address"
-              id="address"
-              onChange={handleChange}
-              value={storeDetails.address}
-              variant="variant-1"
-              required
-            >
-              {errors.address && <p className="error">{errors.address}</p>}
-            </TextArea>
+      <div className="back-container pt-5">
+        {storeData.updateLoading ? (
+          <div className="h-96">
+            <Loader />
           </div>
-          <div className="lg:w-1/2">
-            {storeDetails.image && (
-              <SingleImageComponent
-                setParentDetails={setStoreDetails}
-                parentDetails={storeDetails}
+        ) : (
+          <div className="flex flex-wrap">
+            <div className="lg:w-1/2">
+              <TextInput
+                label="Name:"
+                name="name"
+                id="store-name"
+                onChange={handleChange}
+                value={storeDetails.name}
+                variant="variant-1"
+                required
+              >
+                {errors.name && <p className="error">{errors.name}</p>}
+              </TextInput>
+            </div>
+            <div className="lg:w-1/2">
+              <TextInput
+                label="Properator:"
+                name="properator"
+                id="properator"
+                onChange={handleChange}
+                value={storeDetails.properator}
+                variant="variant-1"
+                required
+              >
+                {errors.properator && (
+                  <p className="error">{errors.properator}</p>
+                )}
+              </TextInput>
+            </div>
+            <div className="lg:w-1/2">
+              <TelInput
+                label="Phone No:"
+                name="phone"
+                id="phone"
+                onChange={handleChange}
+                value={storeDetails.phone}
+                variant="variant-1"
+                required
+              >
+                {errors.phone && <p className="error">{errors.phone}</p>}
+              </TelInput>
+            </div>
+            <div className="lg:w-1/2">
+              <TextInput
+                label="Land line"
+                name="landLine"
+                id="landLine"
+                onChange={handleChange}
+                value={storeDetails.landLine}
+                variant="variant-1"
+                required
+              >
+                {errors.landLine && <p className="error">{errors.landLine}</p>}
+              </TextInput>
+            </div>
+            <div className="lg:w-1/2">
+              <SelectInput
+                options={[
+                  { value: true, label: "Active" },
+                  { value: false, label: "InActive" },
+                ]}
+                label="Status:"
+                id="banner-status"
+                defaultValue={storeDetails.status}
+                variant="variant-1"
+                name="status"
+                onChange={handleChange}
+                required
               />
-            )}
+            </div>
+
+            <div className="lg:w-1/2">
+              <TextArea
+                label="Address"
+                name="address"
+                id="address"
+                onChange={handleChange}
+                value={storeDetails.address}
+                variant="variant-1"
+                required
+              >
+                {errors.address && <p className="error">{errors.address}</p>}
+              </TextArea>
+            </div>
+            <div className="lg:w-1/2">
+              {storeDetails.image && (
+                <SingleImageComponent
+                  setParentDetails={setStoreDetails}
+                  parentDetails={storeDetails}
+                />
+              )}
+            </div>
+            <div className="text-center lg:w-full">
+              <button
+                className="mt-3 rounded-md bg-violet-500 px-3 py-1 text-white"
+                onClick={handleUpdateStore}
+              >
+                Update Store
+              </button>
+            </div>
           </div>
-          <div className="text-center lg:w-full">
-            <button
-              className="mt-3 rounded-md bg-violet-500 px-3 py-1 text-white"
-              onClick={handleUpdateStore}
-            >
-              Update Store
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 

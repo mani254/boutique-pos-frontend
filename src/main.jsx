@@ -5,13 +5,16 @@ import store from "./redux/store.js";
 import { Provider } from "react-redux";
 
 import "./index.css";
+import { HelmetProvider } from "react-helmet-async";
 
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </BrowserRouter>
   </Provider>,
 );

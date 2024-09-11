@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import PiChart from "../PiChart/PiChart.jsx";
 import Loader from "../Loader/Loader.jsx";
+import { Helmet } from "react-helmet-async";
 
 const statusArray2 = [
   { label: "booked", value: "booked" },
@@ -181,139 +182,150 @@ function Dashboard({ storesData, getStores }) {
   }
 
   return (
-    <div>
-      <Header />
-      <div className="flex w-full items-center justify-between rounded-md border-b-2 border-gray-200 p-2">
-        <h5>Dashboard</h5>
-        <div className="jusity-between flex items-center">
-          <DateInput
-            variant="variant-1"
-            label="From:"
-            name="fromDate"
-            value={filters.fromDate}
-            onChange={handleFilterChange}
-          />
-          <DateInput
-            variant="variant-1"
-            label="To:"
-            name="toDate"
-            value={filters.toDate}
-            onChange={handleFilterChange}
-          />
-          <SelectInput
-            options={optionStores}
-            label="Store:"
-            variant="variant-1"
-            value={filters.storeId}
-            name="storeId"
-            onChange={handleFilterChange}
-          />
-        </div>
-      </div>
+    <>
+      <Helmet>
+        <title>Dashboard - Sruthi Boutique</title>
+        <meta
+          name="description"
+          content="Overview of activities, orders, and store management at Sruthi Boutique."
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
 
-      <div className="mt-4 flex space-x-3">
-        {graphLoading ? (
-          <div className="min-w-60 border-gray-200 bg-white shadow-sm">
+      <div>
+        <Header />
+        <div className="flex w-full items-center justify-between rounded-md border-b-2 border-gray-200 p-2">
+          <h5>Dashboard</h5>
+          <div className="jusity-between flex items-center">
+            <DateInput
+              variant="variant-1"
+              label="From:"
+              name="fromDate"
+              value={filters.fromDate}
+              onChange={handleFilterChange}
+            />
+            <DateInput
+              variant="variant-1"
+              label="To:"
+              name="toDate"
+              value={filters.toDate}
+              onChange={handleFilterChange}
+            />
+            <SelectInput
+              options={optionStores}
+              label="Store:"
+              variant="variant-1"
+              value={filters.storeId}
+              name="storeId"
+              onChange={handleFilterChange}
+            />
+          </div>
+        </div>
+
+        <div className="mt-4 flex space-x-3">
+          {graphLoading ? (
+            <div className="min-w-60 border-gray-200 bg-white shadow-sm">
+              <Loader />
+            </div>
+          ) : (
+            <div className="graph flex items-center rounded-2xl border-2 border-gray-200 bg-white p-5 pr-4 shadow-sm">
+              <PiChart storesInfo={stores} />
+              <div>
+                <h6>Stores & Sales</h6>
+                <ul>
+                  {stores.map((store, index) => {
+                    return (
+                      <li key={index} className="flex items-center">
+                        <span
+                          className="mr-2 block h-3 w-3 rounded-full"
+                          style={{ background: store.color }}
+                        ></span>
+
+                        {store.name}
+                        <span className="ml-2 inline-block text-sm">
+                          {/* {" ("} */}
+                          {/* {store.percentage}%{") "} */}
+                          {store.store}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          )}
+
+          <div className="grid flex-1 grid-cols-3 gap-3">
+            {numsInfo.map((item, index) => (
+              <IncomeDisplay
+                title={item.title}
+                value={item.count}
+                key={index}
+                countLoading={countLoading}
+                index={index}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-3 rounded-md border-b-2 border-gray-200 p-2">
+          <h5>Next Three Days Deliveries</h5>
+        </div>
+
+        {ordersLoading ? (
+          <div className="h-96">
             <Loader />
           </div>
         ) : (
-          <div className="graph flex items-center rounded-2xl border-2 border-gray-200 bg-white p-5 pr-4 shadow-sm">
-            <PiChart storesInfo={stores} />
-            <div>
-              <h6>Stores & Sales</h6>
-              <ul>
-                {stores.map((store, index) => {
-                  return (
-                    <li key={index} className="flex items-center">
-                      <span
-                        className="mr-2 block h-3 w-3 rounded-full"
-                        style={{ background: store.color }}
-                      ></span>
-
-                      {store.name}
-                      <span className="ml-2 inline-block text-sm">
-                        {/* {" ("} */}
-                        {/* {store.percentage}%{") "} */}
-                        {store.store}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
+          <table className="main-table orders mt-0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Invoice</th>
+                <th>Categories</th>
+                <th>Total</th>
+                <th>Advance</th>
+                <th>Pending</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.length >= 1 &&
+                orders.map((order) => (
+                  <tr
+                    key={order._id}
+                    onClick={(e) => detailedOrderView(e, order._id)}
+                    className="transition hover:bg-gray-100"
+                  >
+                    <td>{order.customer.name}</td>
+                    <td>{order.customer.number}</td>
+                    <td>{order.invoice}</td>
+                    <td>{order.categories}</td>
+                    <td>{order.price}</td>
+                    <td>{order.advance}</td>
+                    <td>{order.price - order.advance}</td>
+                    <td>
+                      <SelectInput
+                        options={statusArray2}
+                        label="Status"
+                        id="status"
+                        name="status"
+                        defaultValue={order.status}
+                        onChange={(e) =>
+                          handleStatusChange(order._id, e.target.value)
+                        }
+                        variant="variant-1"
+                        required
+                      />
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
         )}
-
-        <div className="grid flex-1 grid-cols-3 gap-3">
-          {numsInfo.map((item, index) => (
-            <IncomeDisplay
-              title={item.title}
-              value={item.count}
-              key={index}
-              countLoading={countLoading}
-              index={index}
-            />
-          ))}
-        </div>
       </div>
-
-      <div className="mt-3 rounded-md border-b-2 border-gray-200 p-2">
-        <h5>Next Three Days Deliveries</h5>
-      </div>
-
-      {ordersLoading ? (
-        <div className="h-96">
-          <Loader />
-        </div>
-      ) : (
-        <table className="main-table orders mt-0">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Number</th>
-              <th>Invoice</th>
-              <th>Categories</th>
-              <th>Total</th>
-              <th>Advance</th>
-              <th>Pending</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.length >= 1 &&
-              orders.map((order) => (
-                <tr
-                  key={order._id}
-                  onClick={(e) => detailedOrderView(e, order._id)}
-                  className="transition hover:bg-gray-100"
-                >
-                  <td>{order.customer.name}</td>
-                  <td>{order.customer.number}</td>
-                  <td>{order.invoice}</td>
-                  <td>{order.categories}</td>
-                  <td>{order.price}</td>
-                  <td>{order.advance}</td>
-                  <td>{order.price - order.advance}</td>
-                  <td>
-                    <SelectInput
-                      options={statusArray2}
-                      label="Status"
-                      id="status"
-                      name="status"
-                      defaultValue={order.status}
-                      onChange={(e) =>
-                        handleStatusChange(order._id, e.target.value)
-                      }
-                      variant="variant-1"
-                      required
-                    />
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-      )}
-    </div>
+    </>
   );
 }
 

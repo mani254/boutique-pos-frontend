@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { getStores } from "../../redux/stores/storeActions";
 import Loader from "../Loader/Loader";
 import { useOutletContext } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function AddAdmin({ addAdmin, showNotification, storesData, getStores }) {
   const [adminDetails, setAdminDetails] = useState({
@@ -81,75 +82,86 @@ function AddAdmin({ addAdmin, showNotification, storesData, getStores }) {
   }
 
   return (
-    <div className="back-container">
-      {adminData.addLoading ? (
-        <div className="h-96">
-          <Loader />
-        </div>
-      ) : (
-        <div className="row mt-5 flex flex-wrap">
-          <div className="lg:w-1/2">
-            <TextInput
-              label="Username:"
-              name="username"
-              id="admin-username"
-              onChange={handleChange}
-              value={adminDetails.username}
-              variant="variant-1"
-              required
-            >
-              {errors.username && <p className="error">{errors.username}</p>}
-            </TextInput>
+    <>
+      <Helmet>
+        <title>Add Admin - Sruthi Boutique</title>
+        <meta
+          name="description"
+          content="Add new admin users to Sruthi Boutique and manage their details."
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
+      <div className="back-container">
+        {adminData.addLoading ? (
+          <div className="h-96">
+            <Loader />
           </div>
-          <div className="lg:w-1/2">
-            <TextInput
-              type="email"
-              label="Email:"
-              name="email"
-              id="admin-email"
-              onChange={handleChange}
-              value={adminDetails.email}
-              variant="variant-1"
-              required
-            >
-              {errors.email && <p className="error">{errors.email}</p>}
-            </TextInput>
+        ) : (
+          <div className="row mt-5 flex flex-wrap">
+            <div className="lg:w-1/2">
+              <TextInput
+                label="Username:"
+                name="username"
+                id="admin-username"
+                onChange={handleChange}
+                value={adminDetails.username}
+                variant="variant-1"
+                required
+              >
+                {errors.username && <p className="error">{errors.username}</p>}
+              </TextInput>
+            </div>
+            <div className="lg:w-1/2">
+              <TextInput
+                type="email"
+                label="Email:"
+                name="email"
+                id="admin-email"
+                onChange={handleChange}
+                value={adminDetails.email}
+                variant="variant-1"
+                required
+              >
+                {errors.email && <p className="error">{errors.email}</p>}
+              </TextInput>
+            </div>
+            <div className="lg:w-1/2">
+              <SelectInput
+                options={optionStores}
+                label="Store"
+                id="Store"
+                variant="variant-1"
+                name="store"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="lg:w-1/2">
+              <PasswordInput
+                label="Password:"
+                name="password"
+                id="admin-password"
+                onChange={handleChange}
+                value={adminDetails.password}
+                variant="variant-1"
+                required
+              >
+                {errors.password && <p className="error">{errors.password}</p>}
+              </PasswordInput>
+            </div>
+            <div className="w-full text-center">
+              <button
+                className="mt-4 rounded-md bg-violet-500 px-3 py-1 text-white"
+                onClick={handleAddAdmin}
+              >
+                Add Admin
+              </button>
+            </div>
           </div>
-          <div className="lg:w-1/2">
-            <SelectInput
-              options={optionStores}
-              label="Store"
-              id="Store"
-              variant="variant-1"
-              name="store"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="lg:w-1/2">
-            <PasswordInput
-              label="Password:"
-              name="password"
-              id="admin-password"
-              onChange={handleChange}
-              value={adminDetails.password}
-              variant="variant-1"
-              required
-            >
-              {errors.password && <p className="error">{errors.password}</p>}
-            </PasswordInput>
-          </div>
-          <div className="w-full text-center">
-            <button
-              className="mt-4 rounded-md bg-violet-500 px-3 py-1 text-white"
-              onClick={handleAddAdmin}
-            >
-              Add Admin
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 }
 

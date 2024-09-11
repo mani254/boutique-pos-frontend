@@ -12,6 +12,8 @@ import { showNotification } from "../../redux/notification/notificationActions";
 import { useNavigate } from "react-router-dom";
 import SingleImageComponent from "../ImageComponent/SingleImageComponent";
 import Loader from "../Loader/Loader";
+import { useOutletContext } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function AddStore({ addStore, showNotification }) {
   const [storeDetails, setStoreDetails] = useState({
@@ -65,6 +67,14 @@ function AddStore({ addStore, showNotification }) {
 
   return (
     <>
+      <Helmet>
+        <title>Add Store - Sruthi Boutique</title>
+        <meta
+          name="description"
+          content="Add new stores to Sruthi Boutique and manage their details."
+        />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
       {storeData.addLoading ? (
         <div className="h-96">
           <Loader />
