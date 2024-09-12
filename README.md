@@ -28,6 +28,7 @@ For more images click on the specified link:<br>
 2) <a href="https://github.com/mani254/boutique-pos-frontend/blob/main/demo/sample-images/orders.png" target="blank">Orders page</a><br>
 3) <a href="https://github.com/mani254/boutique-pos-frontend/blob/main/demo/sample-images/customers.png" target="blank">Customers page</a><br>
 4) <a href="https://github.com/mani254/boutique-pos-frontend/blob/main/demo/sample-images/loginpage.png" target="blank">Login page</a><br>
+5) <a href="https://github.com/mani254/boutique-pos-frontend/blob/main/demo/sample-images/invoice.pdf" target="blank">invoice</a><br>
 
 ## Installation
 1) clone the repository
