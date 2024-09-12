@@ -1,4 +1,7 @@
-# React + Vite
+<h1>POINT OF SALE WEBAPPLCIATION FOR THE BOUTIQUE</h1>
+<p>This website provides the advanced user interface for the management of complete boutique business including the following elements:<br>
+    - Client management
+     _</p>
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
