@@ -13,7 +13,7 @@ The website includes various features including :<br>
 
 -**Invoice generation:** Generation of invoice including the price breakdown.<br>
 
--**Controlled Admin access:** Bifurcation of Access of profiles into SuperAdmin and StoreAdmin depending on the extent of access.
+-**Controlled Admin access:** Bifurcation of Access of profiles into SuperAdmin and StoreAdmin depending on the extent of access.<br>
 
 ## ⇛ Technologies Implemented
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white) ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
