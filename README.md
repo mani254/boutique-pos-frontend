@@ -20,8 +20,8 @@ The website includes various features including :<br>
 
 ## Preview images
 <div align="center">
-  <img src="demo/sample-images/dashboard.png" alt="Screenshot 1" height="250"/>
-  <img src="demo/sample-images/billing.png" alt="Screenshot 2" height= "250"/>
+  <img src="demo/sample-images/dashboard.png" alt="Screenshot 1" height="200"/>
+  <img src="demo/sample-images/billing.png" alt="Screenshot 2" height= "200"/>
 </div><br>
 For more images click on the specified link:<br>
 1) <a href="https://github.com/mani254/boutique-pos-frontend/blob/main/demo/sample-images/AdminsManagement.png" target="blank">Admin Management page</a><br>
