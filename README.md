@@ -20,6 +20,12 @@ The website includes various features including :<br>
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white) ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
 ## Preview images
+<div align="center">
+  <img src="demo/sample-images/dashboard.png" alt="Screenshot 1" height="250"/>
+  <img src="demo/sample-images/billing.png" alt="Screenshot 2" height= "250"/>
+</div>
+For more images click on the specified link:<br>
+1)<a href="https://github.com/vasanthcodes/boutique-pos-frontend/blob/main/demo/sample-images/AdminsManagement.png" target="_blank">Admin Management page</a>
 
 
 
