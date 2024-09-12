@@ -25,7 +25,7 @@ The website includes various features including :<br>
   <img src="demo/sample-images/billing.png" alt="Screenshot 2" height= "250"/>
 </div>
 For more images click on the specified link:<br>
-1)<a href="https://github.com/vasanthcodes/boutique-pos-frontend/blob/main/demo/sample-images/AdminsManagement.png" target="_blank">Admin Management page</a>
+1)<a href="https://github.com/vasanthcodes/boutique-pos-frontend/blob/main/demo/sample-images/AdminsManagement.png" target="blank">Admin Management page</a>
 
 
 
