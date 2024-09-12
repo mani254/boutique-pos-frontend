@@ -1,8 +1,6 @@
 # Business Web Application for boutique
-<p>The POS application for boutiques is a robust and scalable system developed using the MERN stack, aimed at
-efficiently managing various store operations. This document provides a detailed overview of the application's
-features, architecture, and functionalities.This website provides the advanced user interface for the management of complete boutique business including some of the important functions such as invoice generation, client data management and much more. Some of the technologoes used include React, Redux, Tailwind, etc</p><br>
-<p>You can take a look at the backend repo <a href="https://github.com/mani254/boutique-pos-backend">Here.</a> For the backend, technologies like Node.js, Express.js and MangoDB were used. </p>
+<p>The POS application for boutiques is a robust and scalable system developed using the MERN stack, aimed at efficiently managing various store operations. This document provides a detailed overview of the application's features, architecture, and functionalities. This website provides the advanced user interface for the management of complete boutique business including some of the important functions such as invoice generation, client data management and much more. Some of the technologoes used include React, Redux, Tailwind, etc.</p><br>
+<p>You can take a look at the backend repository <a href="https://github.com/mani254/boutique-pos-backend">Here.</a> For the backend, technologies like Node.js, Express.js and MangoDB were used. </p>
 
 ## ⇛ Features
 The website includes various features including :<br>
