@@ -44,6 +44,7 @@ function Billing({ categoriesData, getCategories, showNotification }) {
   });
   const [invoice, setInvoice] = useState(generateRandom6DigitNumber());
   const [error, setErrors] = useState("");
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     fetchCategories();
@@ -149,11 +150,13 @@ function Billing({ categoriesData, getCategories, showNotification }) {
       invoice: invoice,
     };
     try {
+      setDisabled(true);
       const res = await axios.post(
         `${import.meta.env.VITE_APP_BACKENDURI}/api/order`,
         dataToSend,
       );
       if (res.data) {
+        setDisabled(false);
         setItems([]);
         setBillInfo({
           discount: 0,
@@ -170,6 +173,7 @@ function Billing({ categoriesData, getCategories, showNotification }) {
         printBill();
       }
     } catch (err) {
+      setDisabled(false);
       console.error("Error while billing", err);
       showNotification(
         err.response ? err.response.data.error : "Network Error",
@@ -421,6 +425,7 @@ function Billing({ categoriesData, getCategories, showNotification }) {
               <button
                 className="mt-4 rounded-md bg-violet-500 px-3 py-1 text-white"
                 onClick={handleSubmit}
+                disabled={disabled}
               >
                 Save and Print
               </button>
